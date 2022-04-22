@@ -6,6 +6,11 @@ using UnityEngine.XR.ARSubsystems;
 public class PlaceOnPlane : MonoBehaviour
 {
     private ARRaycastManager _aRRaycastManager;
+    private ARFaceManager _aRFaceManager;
+    private ClearCloudPoint _clearCloudPoint;
+
+    public  GameObject Text;
+    public GameObject Button;
     static List<ARRaycastHit> _hits = new List<ARRaycastHit>();
 
     private GameObject ScenePrefab;
@@ -15,13 +20,20 @@ public class PlaceOnPlane : MonoBehaviour
     private void Awake()
     {
         _aRRaycastManager = GetComponent<ARRaycastManager>();
+        _aRFaceManager = GetComponent<ARFaceManager>();
+        _clearCloudPoint = GetComponent<ClearCloudPoint>();
         ScenePrefab = (GameObject)Resources.Load("ARFoundationScene");
+        _aRFaceManager.facesChanged += _aRFaceManager_facesChanged;
+    }
+
+    private void _aRFaceManager_facesChanged(ARFacesChangedEventArgs obj)
+    {
+        Text.SetActive(false);
     }
 
     private void Update()
     {
         SetSceneOnPlace();
-        Debug.Log(ScenePrefab);
     }
 
     private bool TryGetTouchPosition(out Vector2 touchPosition)
@@ -46,7 +58,7 @@ public class PlaceOnPlane : MonoBehaviour
         if (_aRRaycastManager.Raycast(touchPosition, _hits, TrackableType.PlaneWithinPolygon))
         {
             var positionOfTouch = _hits[0].pose;
-            CreateOrMoveScene(positionOfTouch);   
+            CreateOrMoveScene(positionOfTouch);
         }
     }
 
@@ -57,10 +69,13 @@ public class PlaceOnPlane : MonoBehaviour
             Scene.transform.position = position.position;
             RotateSceneToPlayer();
         }
-        else
+        else 
         {
             Scene = Instantiate(ScenePrefab, position.position, Quaternion.identity);
-            RotateSceneToPlayer();
+            Text.SetActive(true);
+            Button.SetActive(true);
+            _aRRaycastManager.enabled = false;
+            _clearCloudPoint.OnPointerClick();
         }
     }    
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 
-public class ClearCloudPoint : MonoBehaviour, IPointerClickHandler
+public class ClearCloudPoint : MonoBehaviour
 {
     private ARPointCloudManager _aRPointCloudManager;
     private ARPlaneManager _aRPlaneManager;
@@ -15,7 +15,7 @@ public class ClearCloudPoint : MonoBehaviour, IPointerClickHandler
         _aRPlaneManager = FindObjectOfType<ARPlaneManager>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick()
     {
         foreach (var point in _aRPointCloudManager.trackables)
         {

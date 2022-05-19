@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :ARPresto:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/64e4574390ed46438c0fa5611c9f8925/transformed/ARPresto/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/64e4574390ed46438c0fa5611c9f8925/transformed/ARPresto/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/64e4574390ed46438c0fa5611c9f8925/transformed/ARPresto/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

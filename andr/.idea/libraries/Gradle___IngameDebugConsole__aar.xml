@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: :IngameDebugConsole:@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/693ab5d85eec71c5a40febb0c1513245/transformed/IngameDebugConsole/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/693ab5d85eec71c5a40febb0c1513245/transformed/IngameDebugConsole/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/693ab5d85eec71c5a40febb0c1513245/transformed/IngameDebugConsole/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

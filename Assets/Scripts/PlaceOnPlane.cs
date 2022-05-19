@@ -43,7 +43,8 @@ public class PlaceOnPlane : MonoBehaviour
             touchPosition = Input.GetTouch(0).position;
             return true;
         }
-
+ 
+         Debug.Log("Plane touch messied");
          touchPosition = default;
          return false;   
     }
@@ -57,6 +58,7 @@ public class PlaceOnPlane : MonoBehaviour
 
         if (_aRRaycastManager.Raycast(touchPosition, _hits, TrackableType.PlaneWithinPolygon))
         {
+            Debug.Log("Plane touch successful");
             var positionOfTouch = _hits[0].pose;
             CreateOrMoveScene(positionOfTouch);
         }
@@ -83,5 +85,6 @@ public class PlaceOnPlane : MonoBehaviour
     {
         Scene.transform.rotation = new Quaternion(Scene.transform.rotation.x, 
             Camera.transform.rotation.y, Scene.transform.rotation.z, Camera.transform.rotation.w);
+        Debug.Log("The room created");
     }
 }
